@@ -1,0 +1,24 @@
+Requirements:
+
+Packages:
+- Express
+- Sequelize
+- 
+
+
+- Homepage
+    - Existing blog posts
+    - Navigation Links (Homepage and dashboard)
+    - Login option
+
+- Homepage Link links to the Homepage
+
+- Any other links on the nav bar take you to a login or sign up page
+    - Sign up prompts user to create username and password
+    - After inputting information, sign-up logs user into the site
+    - Credentials are saved
+
+- Later revisiting any other site than the homepage, the site prompts user to sign in
+- Being signed into the site, the user sees nav links for the honmepage, dashboard, and the option to log out
+
+- 
