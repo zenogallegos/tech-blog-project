@@ -1,0 +1,8 @@
+<!-- Loop over each object in the post array -->
+{{#each homePost as |post| }}
+<a href="/post/{{id}}">
+    {{!-- Renders the post title and date created --}}
+    <header>{{title}}</header>
+    <p>{{date_created}}</p>
+</a>
+{{/each}}
