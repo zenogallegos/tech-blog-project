@@ -3,11 +3,14 @@ Requirements:
 Packages:
 - Express
 - Sequelize
-- 
+- mysql2
+- handlebars
+- dotenv
+- bcrypt
 
 
 - Homepage
-    - Existing blog posts
+    - Existing blog posts (That include post title and date created)
     - Navigation Links (Homepage and dashboard)
     - Login option
 
@@ -21,4 +24,15 @@ Packages:
 - Later revisiting any other site than the homepage, the site prompts user to sign in
 - Being signed into the site, the user sees nav links for the honmepage, dashboard, and the option to log out
 
-- 
+- When posts are clicked, user is presented with post title, contents, post creator's username, and the date created
+- Posts have the options to leave a comment, and user can only do so when signed in
+- Comments are saved, and the post is updated to display the comment, comment author's username, and the date created
+
+- Clicking on the dashboard when logged in will take user to all of their blog posts and the option to create a new post
+- clicking on the option to create a new post will take the user to another page that will prompt the user to enter a title and contents for the post
+- Clicking on create blog post will direct the user back to the dashboard with the new post
+
+- Clicking on one of the existing posts in the dashboard will present the user with the option to delete or update a post, whereupon the user is directed back to the dashboard
+
+- Clicking on the logout option on the nav bar signs the user out of the site and directed to the homepage.
+- When idle on the site, user can view posts, but is prompted to log in before being able to go to the dashboard.
