@@ -22,20 +22,19 @@ Post.init(
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW
+      defaultValue: DataTypes.NOW,
     },
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: "User",
+        model: "user",
         modelName: "id",
       },
     },
   },
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "post",
