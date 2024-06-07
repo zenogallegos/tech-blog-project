@@ -1,21 +1,22 @@
-const router = require('express').Router();
-const { User, Post, Comment } = require('../models');
+const router = require("express").Router();
+const { User, Post, Comment } = require("../models");
 
 // GET for homepage
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
+  res.render('main', main);
+});
+
+router.get('/profile', async (req, res) => { 
   try {
     const dbPostData = await Post.findAll({
-            attributes: ['title', 'date_created'],
-      });
-    // Preps posts for display
-      const homePost = dbPostData.map((post) =>
-        post.get({ plain: true })
-      );
-    // Displays posts
-    res.render('homepage', {
-    // Get homepage
-      homePost,
+      include: [
+        { 
+          attributes: ["title", "date_created"] 
+        },
+      ],
     });
+    // Preps posts for display
+    const homePost = dbPostData.map((post) => post.get({ plain: true }));
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
