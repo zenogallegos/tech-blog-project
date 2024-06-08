@@ -2,25 +2,32 @@ const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
 
 // GET for homepage
-router.get("/", async (req, res) => {
-  res.render('main', main);
-});
-
-router.get('/profile', async (req, res) => { 
+router.get("/", auth, async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
-      include: [
-        { 
-          attributes: ["title", "date_created"] 
-        },
-      ],
+      include: { model: User },
+      order: [["date_created", "DESC"]],
     });
-    // Preps posts for display
+
     const homePost = dbPostData.map((post) => post.get({ plain: true }));
+    res.render("homepage", {
+      homePost,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
+});
+
+//If not logged in
+router.get("/login", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("login");
 });
 
 module.exports = router;
