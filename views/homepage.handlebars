@@ -1,8 +1,22 @@
-<!-- Loop over each object in the post array -->
-{{#each homePost as |post| }}
+{{#each homePost as |post|}}
 <a href="/post/{{id}}">
-    {{!-- Renders the post title and date created --}}
-    <header>{{title}}</header>
+    <!-- shows the post by title and date created on the homepage that are clickable -->
+    <h3>{{title}}</h3>
+    <strong>{{user.name}}</strong>
+    <p>{{content}}</p>
     <p>{{date_created}}</p>
 </a>
+</br>
 {{/each}}
+
+<button id="add-btn">add post</button>
+
+<form id="input-wrapper">
+    <input type="text" id="title" value="Title"><br><br>
+    <textarea id="new-post" name="post">
+        post here
+    </textarea>
+    <input id="submit-post" type="submit" value="Submit">
+</form>
+
+<script src="./js/posthandler.js"></script>

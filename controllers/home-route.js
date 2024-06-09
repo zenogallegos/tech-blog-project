@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Post, Comment } = require("../models");
+const auth = require("../utils/auth");
 
 // GET for homepage
 router.get("/", auth, async (req, res) => {
