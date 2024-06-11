@@ -1,14 +1,16 @@
+// import models
 const User = require("./User");
 const Post = require("./Post");
-const Comment = require("./Comment");
+const Comments = require("./Comments");
 
-Comment.belongsTo(Post);
-Post.hasMany(Comment);
+// define relationships between the models
+Comments.belongsTo(Post);
+Post.hasMany(Comments);
 
 Post.belongsTo(User);
 User.hasMany(Post);
 
-Comment.belongsTo(User);
-User.hasMany(Comment);
+Comments.belongsTo(User);
+User.hasMany(Comments);
 
-module.exports = { User, Post, Comment };
+module.exports = { User, Post, Comments };
