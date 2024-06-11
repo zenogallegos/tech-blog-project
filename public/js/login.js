@@ -31,7 +31,7 @@ const signupFormHandler = async (event) => {
 
   //if a username and password are given calls sign up route
   if (username && password) {
-    const response = await fetch("/api/users/signUp", {
+    const response = await fetch("/api/users", {
       method: "POST",
       body: JSON.stringify({ name: username, password: password }),
       headers: { "Content-Type": "application/json" },
@@ -41,6 +41,7 @@ const signupFormHandler = async (event) => {
       document.location.replace("/");
     } else {
       alert("Could not sign up");
+      console.log(response);
     }
   }
 };

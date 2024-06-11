@@ -1,8 +1,15 @@
 const router = require("express").Router();
 const { Post, Comment, User } = require("../models");
-const auth = require("../utils/auth");
+// const auth = require("../utils/auth");
 
-router.get("/", auth, async (req, res) => {
+// router.get("/", auth, async (req, res) => {
+//   try {
+//     const dbPostData = await Post.findAll({
+//       include: { model: User },
+//       order: [["date_created", "DESC"]],
+//     });
+
+router.get("/", async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
       include: { model: User },
