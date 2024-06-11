@@ -1,21 +1,25 @@
 <h1>MVC Tech Blog</h1>
 
-{{#each homePost as |post|}}
-  <a href="/post/" {{id}}>
-    <h3>{{title}}</h3>
-    <strong>{{user.name}}</strong>
-    <p>{{content}}</p>
-    <p>{{date_created}}</p>
-  </a>
-{{/each}}
+{{#if loggedIn}}
+  {{#each homePost as |post|}}
+    <a href="/post/" {{id}}>
+      <h3>{{title}}</h3>
+      <strong>{{user.name}}</strong>
+      <p>{{content}}</p>
+      <p>{{date_created}}</p>
+    </a>
+  {{/each}}
 
-<form id="input-wrapper">
-  <input type="text" id="title" value="Title" />
-  <button id="add-btn">Add post</button><br /><br />
-  <textarea id="new-post" name="post">
-    Write post
-  </textarea>
-  <input id="submit-post" type="submit" value="Submit" />
-</form>
+  <form id="input-wrapper">
+    <input type="text" id="title" value="Title" />
+    <button id="add-btn">Add post</button><br /><br />
+    <textarea id="new-post" name="post">
+      Write post
+    </textarea>
+    <input id="submit-post" type="submit" value="Submit" />
+  </form>
+{{else}}
+  <h2>Login to view posts!</h2>
+{{/if}}
 
 <script src="./js/handlePost.js"></script>
