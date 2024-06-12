@@ -50,6 +50,10 @@ WHEN I am idle on the site for more than a set time
 THEN I am able to view posts and comments but I am prompted to log in again before I can add, update, or delete posts
 ```
 
+## Media
+
+![App Preview](./Assets/Screenshot%202024-06-11%20at%207.36.17 PM.png)
+
 ## URLs
 
 GitHub: https://github.com/zenogallegos/tech-blog-project
